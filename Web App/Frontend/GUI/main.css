@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    margin-top: 21%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    color: #ffffff;
+}
+
+body {
+    background: url(background-tntnp1.jpg);
+    background-size: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: smaller;
+    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-repeat: no-repeat, repeat;
+    background-color: #595959;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00629b;
+    border-radius: 6px;
+    outline: none;
+}
+
+button1 {
+    margin-top: 21%;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00629b;
+    border-radius: 6px;
+    outline: none;
+    transform: rotate(90deg);
+}
+
+hand{
+    background: url(background-tntnp1.jpg);
+}
