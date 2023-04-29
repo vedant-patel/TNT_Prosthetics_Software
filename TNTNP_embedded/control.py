@@ -9,9 +9,9 @@ import threading
 class Control: 
     def __init__(self):
         
-        board = Arduino(self.port)
+        self.board = Arduino(self.port)
 
-        # board.digital[SERVO0].mode = SERVO
+        board.digital[SERVO0].mode = SERVO
         board.digital[SERVO1].mode = SERVO
         board.digital[SERVO2].mode = SERVO
         board.digital[SERVO3].mode = SERVO
@@ -20,20 +20,20 @@ class Control:
 
     
     def holdUpFinger(self, holdup_servonum):
-        threads = []
+        threads_to_run = []
         for i in SERVOLIST:
             if i is not holdup_servonum:
-                threads.append(i)
-        for th in threads:
+                threads_to_run.append(threading.Thread(target=self.lerp, args=(0, 180, i)))
+        for th in threads_to_run:
             th.start()
-        for th in threads:
+        for th in threads_to_run:
             th.join()
         
             
 
     def run(self, hand_state):      
         if hand_state == OPEN:
-            self.board.digital[SERVO1].write(0)
+            board.digital[SERVO1].write(0)
             self.board.digital[SERVO2].write(0)
             self.board.digital[SERVO3].write(0)
             self.board.digital[SERVO4].write(0)
@@ -65,9 +65,8 @@ class Control:
 
 
     def lerp(self, start_angle, end_angle, servonum):
-        t_array = np.linspace(0,1,TIME_DIVISIONS)
-        for t in t_array:
-            angle = (1-t)*(start_angle) + t*(end_angle)
+        for t in np.linspace(0, 1, TIME_DIVISIONS):
+            angle = (1 - t) * start_angle + t * end_angle
             self.board.digital[servonum].write(angle)
             sleep(SERVO_DELAY)
 
