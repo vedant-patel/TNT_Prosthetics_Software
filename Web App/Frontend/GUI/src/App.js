@@ -144,7 +144,7 @@ function App() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-      <div style={{ display: "flex", flexDirection:"row-reverse",  marginTop:50, marginBottom:25, marginLeft:40}}>
+      <div style={{ pointerEvents:"none", display: "flex", flexDirection:"row-reverse",  marginTop:50, marginBottom:25, marginLeft:40}}>
         <Slider id={"Thumb"} value={slider5Value} onChange={setSlider5Value} shiftDown={140} shiftRight={30}/>
         <Slider id={"Index"} value={slider1Value} onChange={setSlider1Value} shiftDown={60} shiftRight={0}/>
         <Slider id={"Middle"} value={slider2Value} onChange={setSlider2Value} shiftDown={0} shiftRight={0}/>
