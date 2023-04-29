@@ -8,15 +8,15 @@ import threading
 
 class Control: 
     def __init__(self):
-        
+        self.port = PORT
         self.board = Arduino(self.port)
 
-        board.digital[SERVO0].mode = SERVO
-        board.digital[SERVO1].mode = SERVO
-        board.digital[SERVO2].mode = SERVO
-        board.digital[SERVO3].mode = SERVO
-        board.digital[SERVO4].mode = SERVO
-        # board.digital[SERVO5].mode = SERVO
+        self.board.digital[SERVO0].mode = SERVO
+        self.board.digital[SERVO1].mode = SERVO
+        self.board.digital[SERVO2].mode = SERVO
+        self.board.digital[SERVO3].mode = SERVO
+        self.board.digital[SERVO4].mode = SERVO
+        # self.board.digital[SERVO5].mode = SERVO
 
     
     def holdUpFinger(self, holdup_servonum):
@@ -33,7 +33,7 @@ class Control:
 
     def run(self, hand_state):      
         if hand_state == OPEN:
-            board.digital[SERVO1].write(0)
+            self.board.digital[SERVO1].write(0)
             self.board.digital[SERVO2].write(0)
             self.board.digital[SERVO3].write(0)
             self.board.digital[SERVO4].write(0)

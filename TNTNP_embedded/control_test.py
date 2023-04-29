@@ -6,7 +6,7 @@ import numpy as np
 import threading
 
 
-class Control: 
+class Controltest: 
     def __init__(self):
         self.board = Arduino(self.port)
 

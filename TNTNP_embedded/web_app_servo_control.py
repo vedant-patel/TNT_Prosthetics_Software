@@ -13,47 +13,48 @@ board.digital[SERVO3].mode = SERVO
 board.digital[SERVO4].mode = SERVO
 # board.digital[SERVO5].mode = SERVO
 
-angle = 0
 da = 5
+angle = 0
 
-def clench_finger(servonum):
+def clench_finger(angle,servonum):
     if angle + da < 180:
             angle = angle + da
             board.digital[servonum].write(angle)
             sleep(SERVO_DELAY)
 
-def unclench_finger(servonum):
+def unclench_finger(angle, servonum):
     if angle - da > 0:
             angle = angle - da
             board.digital[SERVO0].write(angle)
             sleep(SERVO_DELAY)
 
 
+
 while True:
 
     if keyboard.is_pressed('r'):
-        clench_finger(SERVO0)
+        clench_finger(angle, SERVO0)
     if keyboard.is_pressed('f'):
-        unclench_finger(SERVO0)
+        unclench_finger(angle, SERVO0)
 
     if keyboard.is_pressed('t'):
-        clench_finger(SERVO1)
+        clench_finger(angle, SERVO1)
     if keyboard.is_pressed('g'):
-        unclench_finger(SERVO1)
+        unclench_finger(angle, SERVO1)
 
     if keyboard.is_pressed('y'):
-        clench_finger(SERVO2)
+        clench_finger(angle, SERVO2)
     if keyboard.is_pressed('h'):
-        unclench_finger(SERVO2)
+        unclench_finger(angle, SERVO2)
 
     if keyboard.is_pressed('u'):
-        clench_finger(SERVO3)
+        clench_finger(angle, SERVO3)
     if keyboard.is_pressed('j'):
-        unclench_finger(SERVO3)
+        unclench_finger(angle, SERVO3)
 
     if keyboard.is_pressed('i'):
-        clench_finger(SERVO4)
+        clench_finger(angle, SERVO4)
     if keyboard.is_pressed('k'):
-        unclench_finger(SERVO4)
+        unclench_finger(angle, SERVO4)
 
         
